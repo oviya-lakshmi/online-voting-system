@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Online Voting</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>ONLINE VOTING SYSTEM</header>
+  
+  <div class="container">
+    <div class="form-box" style="max-width: 600px;">
+      <h2>Welcome, <span th:text="${#authentication.name}">User</span>!</h2>
+      
+      <div style="margin: 30px 0;">
+        <a href="/vote" class="btn" style="display: block; margin-bottom: 15px;">Cast Your Vote</a>
+        <a href="/results" class="btn" style="display: block; margin-bottom: 15px; background: #7fdbca;">View Results</a>
+        <a href="/logout" class="btn" style="display: block; background: #ff6b6b;">Logout</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

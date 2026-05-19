@@ -1,0 +1,165 @@
+/* ===== General Layout ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* ===== Header ===== */
+header, .header {
+    background: linear-gradient(135deg, #c9a6ff 0%, #b57cff 100%);
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Container ===== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 20px;
+}
+
+.form-box {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 450px;
+}
+
+/* ===== Form Elements ===== */
+h2 {
+    color: #2d3561;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 28px;
+}
+
+h3 {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #b57cff;
+    box-shadow: 0 0 0 3px rgba(181, 124, 255, 0.1);
+}
+
+/* ===== Buttons ===== */
+button, .btn {
+    background: linear-gradient(135deg, #b57cff 0%, #9e65ff 100%);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(181, 124, 255, 0.3);
+}
+
+button:active, .btn:active {
+    transform: translateY(0);
+}
+
+/* ===== Links ===== */
+a {
+    color: #9e65ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Alerts ===== */
+.alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.alert-error {
+    background: #fee;
+    color: #c33;
+    border-left: 4px solid #c33;
+}
+
+.alert-success {
+    background: #efe;
+    color: #3c3;
+    border-left: 4px solid #3c3;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header {
+        font-size: 20px;
+        padding: 20px 10px;
+    }
+    
+    .form-box {
+        padding: 30px 20px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+}
+
+/* ===== Utility ===== */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}

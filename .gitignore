@@ -1,0 +1,14 @@
+target/
+*.class
+*.log
+*.jar
+*.war
+
+.idea/
+.vscode/
+*.iml
+
+node_modules/
+
+application.properties
+.env

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results - Online Voting</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .results-table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+    }
+    
+    .results-table th, .results-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .results-table th {
+      background: #b57cff;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .results-table tr:hover {
+      background: #f5f5f5;
+    }
+    
+    .winner-badge {
+      background: #ffd700;
+      color: #2d3561;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    
+    .vote-bar {
+      height: 20px;
+      background: #b57cff;
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>ONLINE VOTING SYSTEM</header>
+  
+  <div class="container">
+    <div class="form-box" style="max-width: 900px;">
+      <h2>Voting Results</h2>
+      
+      <div th:if="${winner}" style="background: #fff4e6; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        <h3 style="color: #2d3561; margin: 0;">🏆 Current Leader</h3>
+        <p style="font-size: 24px; font-weight: 600; margin: 10px 0;">
+          <span th:text="${winner.name}"></span> - 
+          <span th:text="${winner.party}"></span>
+        </p>
+        <p style="font-size: 18px; color: #666;">
+          Votes: <span th:text="${winner.voteCount}"></span>
+        </p>
+      </div>
+      
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Candidate</th>
+            <th>Party</th>
+            <th>Votes</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="candidate, iterStat : ${results}">
+            <td th:text="${iterStat.count}"></td>
+            <td>
+              <span th:text="${candidate.name}"></span>
+              <span th:if="${iterStat.index == 0}" class="winner-badge">LEADING</span>
+            </td>
+            <td th:text="${candidate.party + ' ' + candidate.symbol}"></td>
+            <td th:text="${candidate.voteCount}"></td>
+            <td>
+              <div style="width: 100px; background: #f0f0f0; border-radius: 10px; overflow: hidden;">
+                <div class="vote-bar" 
+                     th:style="'width: ' + ${winner != null ? (candidate.voteCount * 100.0 / winner.voteCount) : 0} + '%'">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="margin-top: 30px;">
+        <a href="/home" class="btn">Back to Home</a>
+        <button onclick="location.reload()" class="btn" style="background: #7fdbca; margin-left: 10px;">
+          Refresh Results
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

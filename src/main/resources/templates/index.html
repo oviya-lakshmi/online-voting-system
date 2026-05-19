@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Voting System</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .welcome-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    
+    .welcome-title {
+      font-size: 48px;
+      color: #2d3561;
+      margin-bottom: 20px;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    
+    .btn-large {
+      padding: 20px 60px;
+      font-size: 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    
+    .btn-vote {
+      background: linear-gradient(135deg, #c9a6ff 0%, #b57cff 100%);
+      color: white;
+    }
+    
+    .btn-results {
+      background: linear-gradient(135deg, #7fdbca 0%, #5bc0be 100%);
+      color: white;
+    }
+    
+    .btn-large:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>ONLINE VOTING SYSTEM</header>
+  
+  <div class="welcome-container">
+    <h1 class="welcome-title">Welcome to<br/>Online Voting System</h1>
+    
+    <div class="button-group">
+      <a href="/login" class="btn-large btn-vote">VOTE NOW</a>
+      <a href="/results" class="btn-large btn-results">VIEW RESULTS</a>
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 16px;">
+      Don't have an account? <a href="/register">Register</a>
+    </p>
+  </div>
+</body>
+</html>

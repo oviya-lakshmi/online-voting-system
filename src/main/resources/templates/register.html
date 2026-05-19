@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Online Voting System</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>ONLINE VOTING SYSTEM</header>
+  
+  <div class="container">
+    <div class="form-box">
+      <h2>User Registration</h2>
+      
+      <form action="/register" method="post" onsubmit="return validateForm()">
+        <input type="text" name="username" id="username" placeholder="Username" required />
+        <input type="email" name="email" id="email" placeholder="Email" required />
+        <input type="password" name="password" id="password" placeholder="Password" required />
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+        
+        <button type="submit">REGISTER</button>
+      </form>
+      
+      <p style="margin-top: 20px;">
+        Already registered? <a href="/login">Login here</a>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    function validateForm() {
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return false;
+      }
+      
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long!');
+        return false;
+      }
+      
+      return true;
+    }
+  </script>
+</body>
+</html>

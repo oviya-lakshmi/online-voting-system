@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote - Online Voting</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .candidate-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+    }
+    
+    .candidate-card:hover {
+      border-color: #b57cff;
+      box-shadow: 0 5px 15px rgba(181, 124, 255, 0.3);
+    }
+    
+    .candidate-info {
+      flex-grow: 1;
+      text-align: left;
+    }
+    
+    .candidate-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: #2d3561;
+    }
+    
+    .candidate-party {
+      color: #666;
+      margin-top: 5px;
+    }
+    
+    .vote-btn {
+      background: #b57cff;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    .vote-btn:hover {
+      background: #9e65ff;
+    }
+    
+    .vote-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>ONLINE VOTING SYSTEM</header>
+  
+  <div class="container">
+      <a href="../../java/com/mit/online_voting/OnlineVotingApplication.java"></a>
+    <div class="form-box" style="max-width: 700px;">
+      <h2>Cast Your Vote</h2>
+      
+      <div th:if="${hasVoted}" class="alert alert-error">
+        You have already voted in this election!
+      </div>
+      
+      <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+      <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+      
+      <div th:if="${!hasVoted}">
+        <form action="/vote" method="post" id="voteForm">
+          <div th:each="candidate : ${candidates}" class="candidate-card">
+            <div class="candidate-info">
+              <div class="candidate-name" th:text="${candidate.name}"></div>
+              <div class="candidate-party" th:text="${candidate.party + ' ' + candidate.symbol}"></div>
+            </div>
+            <button type="submit" name="candidateId" th:value="${candidate.id}" class="vote-btn">
+              VOTE
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <div style="margin-top: 30px;">
+        <a href="/home" class="btn">Back to Home</a>
+        <a href="/results" class="btn" style="background: #7fdbca; margin-left: 10px;">View Results</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
